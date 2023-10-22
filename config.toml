@@ -1,0 +1,39 @@
+name = "IndoML"
+
+['files']
+train_labels = "./data/labels.tsv"
+train_data = "./data/train.tsv"
+test_data = "./data/test.tsv"
+train_features = "./data/train_features.pkl"
+test_features = "./data/test_features.pkl"
+all_labels = "./data/all_labels.txt"
+
+['models']
+feature_model = "philschmid/habana-xlm-r-large-amazon-massive"
+feature_batch = 32	# Batch size.
+feature_MAX = 70	# Max tokenized length of train and test sequences.
+
+['prompts']
+rag_num = 19
+random_num = 1
+preamble = "./data/prompts/preamble.txt"
+prompt_file = "./data/prompts/test_prompts.json"
+train_prompt_file = "./data/prompts/train_prompts.json"
+
+['llm']
+seq_num = 5		# How many sequences to sample
+temperature=0.5		# Temperature scaling
+max_new = 10		# Max new tokens to be generated
+llama13 = "llama2"
+llama13P = "llama2"
+llama70 = "llama2-70B"
+mistral = "mistralai/Mistral-7B-v0.1"
+phi = "microsoft/phi-1_5"
+
+['prompt-tune']
+epochs = 5
+lr = 3e-2
+
+['answers']
+dir = "./data/inferences"
+knn = "./data/inferences/knn_answers.json"
